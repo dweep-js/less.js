@@ -1900,7 +1900,7 @@ const Parser = function Parser(context, imports, fileInfo, currentIndex) {
                         let closed = false;
                         p = this.property();
                         parserInput.save();
-                        if (!p && syntaxOptions.queryInParens && parserInput.$re(/^[0-9a-z-]*\s*([<>]=|<=|>=|[<>]|=)/)) {
+                        if (!p && syntaxOptions.queryInParens && parserInput.$re(/^(?:[^()]|\([^()]*\))*\s*([<>]=|<=|>=|[<>]|=)/)) {
                             parserInput.restore();
                             p = this.condition();
 
